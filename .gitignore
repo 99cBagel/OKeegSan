@@ -11,3 +11,11 @@ Thumbs.db
 .env.*
 *.pem
 *.key
+OKeegSan_helper/.env
+OKeegSan_helper/.venv/
+OKeegSan_helper/__pycache__/
+OKeegSan_helper/.pytest_cache/
+OKeegSan_helper/data/
+*.requests
+OKeegSan_helper/.pytest-tmp/
+!OKeegSan_helper/.env.example

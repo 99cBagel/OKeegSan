@@ -18,23 +18,24 @@ Project repository: [github.com/99cBagel/OKeegSan](https://github.com/99cBagel/O
 ## Start a session
 
 1. In ChatGPT, connect the private `OKeegSan` repository through the GitHub app.
-2. Start an audio chat and say one of these first prompts:
-   - “Open OKeegSan.”
-   - “Start OKeegSan.”
-   - “Stop OKeegSan.”
-3. After opening or starting O'KeegSan, give a second prompt to select the mode:
-   - “Run.”
-   - “BWT weight training.”
-4. ChatGPT should read and follow the matching mode prompt:
+2. In a supported text, Work, or Codex conversation, say:
+   “Use `modes/README_audio_chat_prompt.md` and enact the role of O'KeegSan.”
+3. Start audio chat, then say “Open O'KeegSan” or “Start O'KeegSan.”
+4. Select the mode with “Run,” “BWT weight training,” or “Bike.” The controller
+   loads the matching detailed prompt:
    - Run: `modes/run/README_run_prompt.md`
    - Weight training: `modes/weight-training/README_wt_prompt.md`
    - Bike: `modes/bike/README_bike_prompt.md`
-5. If needed, say: “Use the O'KeegSan instructions in that file for this session.”
-6. At the end, approve creation of the proposed activity log, download/copy the
-   Markdown, and add it to the matching `logs/<mode>/<year>/` folder.
+5. Say “Save O'KeegSan” to review a one-line daily summary and prepare the full
+   activity log, or “Close O'KeegSan” to leave without saving.
+6. Approve the proposed summary before it is written. If the helper is not
+   available in the active chat, save the provided Markdown manually under
+   `logs/<mode>/<year>/`.
 
 > The ChatGPT GitHub connection is read-only. ChatGPT can draft the log, while
 > Codex or local Git is used to save, commit, and push it.
+> Ordinary ChatGPT Voice currently cannot use connected apps or plugins. Voice in
+> Work or Codex can use project context and tools supported by its host.
 
 ## Repository map
 
@@ -42,6 +43,7 @@ Project repository: [github.com/99cBagel/OKeegSan](https://github.com/99cBagel/O
 OKeegSan/
 ├── AGENTS.md                         # Rules for Codex maintenance
 ├── modes/
+│   ├── README_audio_chat_prompt.md
 │   ├── run/README_run_prompt.md
 │   ├── weight-training/README_wt_prompt.md
 │   └── bike/README_bike_prompt.md
@@ -54,6 +56,7 @@ OKeegSan/
 │   ├── weight-training/2026/
 │   └── bike/2026/
 ├── topics/                           # Optional briefing interests/watchlists
+├── OKeegSan_helper/                  # FastAPI daily-summary append service
 └── docs/                             # Setup and workflow documentation
 ```
 
@@ -73,3 +76,11 @@ from inference.
 
 See [docs/local-and-github-setup.md](docs/local-and-github-setup.md) for the
 two-account GitHub setup, local commit workflow, and iPhone connection steps.
+
+## MCP app example
+
+`OKeegSan_helper/mcp_server.py` exposes the approved-summary save as a focused
+MCP tool. See [the iPhone and MCP workflow](docs/iphone-mcp-workflow.md) for
+setup and the current limitation: ordinary iPhone ChatGPT Voice can prepare the
+summary but cannot directly invoke apps or MCP tools, so the save is sent as a
+text follow-up in the same conversation.
