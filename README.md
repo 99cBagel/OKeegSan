@@ -13,15 +13,24 @@ The repository is the durable source of guidance. ChatGPT reads the relevant
 mode prompt at the beginning of an activity and produces a dated Markdown log
 at the end.
 
+Project repository: [github.com/99cBagel/OKeegSan](https://github.com/99cBagel/OKeegSan.git)
+
 ## Start a session
 
 1. In ChatGPT, connect the private `OKeegSan` repository through the GitHub app.
-2. Start a voice conversation and name the mode and prompt path:
+2. Start an audio chat and say one of these first prompts:
+   - “Open OKeegSan.”
+   - “Start OKeegSan.”
+   - “Stop OKeegSan.”
+3. After opening or starting O'KeegSan, give a second prompt to select the mode:
+   - “Run.”
+   - “BWT weight training.”
+4. ChatGPT should read and follow the matching mode prompt:
    - Run: `modes/run/README_run_prompt.md`
    - Weight training: `modes/weight-training/README_wt_prompt.md`
    - Bike: `modes/bike/README_bike_prompt.md`
-3. Say: “Use the O'KeegSan instructions in that file for this session.”
-4. At the end, approve creation of the proposed activity log, download/copy the
+5. If needed, say: “Use the O'KeegSan instructions in that file for this session.”
+6. At the end, approve creation of the proposed activity log, download/copy the
    Markdown, and add it to the matching `logs/<mode>/<year>/` folder.
 
 > The ChatGPT GitHub connection is read-only. ChatGPT can draft the log, while
