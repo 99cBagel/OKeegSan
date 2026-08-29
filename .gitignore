@@ -1,0 +1,13 @@
+# Operating-system and editor artifacts
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.tmp
+*.bak
+
+# Never commit common credential files
+.env
+.env.*
+*.pem
+*.key
